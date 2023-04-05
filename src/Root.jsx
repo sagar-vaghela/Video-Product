@@ -1,6 +1,8 @@
-import {Composition} from 'remotion';
-import {HelloWorld} from './HelloWorld';
-import {Logo} from './HelloWorld/Logo';
+import { Composition } from 'remotion';
+import { HelloWorld } from './HelloWorld';
+import { Logo } from './HelloWorld/Logo';
+import "./style.css";
+import MyImage from './MyImage';
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -31,6 +33,14 @@ export const RemotionRoot = () => {
 				fps={30}
 				width={1920}
 				height={1080}
+			/>
+			<Composition
+				id="my-video"
+				durationInFrames={100}
+				fps={30}
+				width={1920}
+				height={1080}
+				component={MyImage}
 			/>
 		</>
 	);

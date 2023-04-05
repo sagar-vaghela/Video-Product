@@ -12,9 +12,14 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@remotion/cli": "3.3.81",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "postcss-loader": "^7.2.4",
+    "postcss-preset-env": "^8.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "remotion": "3.3.81"
+    "remotion": "3.3.81",
+    "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
     "@remotion/eslint-config": "3.3.81",

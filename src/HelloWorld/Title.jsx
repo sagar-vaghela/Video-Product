@@ -25,7 +25,7 @@ export const Title = ({titleText, titleColor}) => {
 	const words = titleText.split(' ');
 
 	return (
-		<h1 style={title}>
+		<h1 style={title} >
 			{words.map((t, i) => {
 				const delay = i * 5;
 

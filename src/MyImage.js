@@ -7,41 +7,47 @@ import {
 	useCurrentFrame,
 	useVideoConfig
 } from 'remotion';
-
-const MyImage = () => {
+const arr = [
+	{
+		name: 'explore1.png',
+		from: 0 - 5,
+		durationInFrames: 50 + 5,
+	},
+	{
+		name: 'explore2.png',
+		from: 50 - 5,
+		durationInFrames: 50 + 5,
+	},
+	{
+		name: 'explore3.png',
+		from: 100 - 5,
+		durationInFrames: 50 + 5,
+	}
+]
+const MyImage = ({ durationInFrames }) => {
 	const frame = useCurrentFrame();
-	const {durationInFrames} = useVideoConfig();
-	const opacity = interpolate(
-		frame,
-		[0, 20, durationInFrames - 20, durationInFrames],
-		[0, 1, 0.6, 1]
-	);
+	// const {durationInFrames} = useVideoConfig();
+
 	return (
 		<>
-			<Sequence durationInFrames={33} name="image1">
-				<AbsoluteFill>
-					<Img
-						src={staticFile('Explore1.png')}
-						alt="dsfsdf"
-					/>
-				</AbsoluteFill>
-			</Sequence>
-			<Sequence from={33} durationInFrames={33} name="image2">
-				<AbsoluteFill>
-					<Img
-						src={staticFile('explore2.png')}
-						alt="asdfas"
-					/>
-				</AbsoluteFill>
-			</Sequence>
-			<Sequence from={66} durationInFrames={33} name="image3">
-				<AbsoluteFill>
-					<Img
-						src={staticFile('explore3.png')}
-						alt="dsfsfsdfdf"
-					/>
-				</AbsoluteFill>
-			</Sequence>
+			{
+				arr.map((e) => {
+					// let dif = durationInFrames / arr.length;
+					return (
+						<>
+							<Sequence from={e.from} durationInFrames={e.durationInFrames} name="image1">
+								<AbsoluteFill>
+									<Img
+										src={staticFile(e.name)}
+										alt="explore"
+										style={{ opacity: `${ frame / e.durationInFrames }` }}
+									/>
+								</AbsoluteFill>
+							</Sequence>
+						</>
+					)
+				})
+			}
 		</>
 	);
 };
